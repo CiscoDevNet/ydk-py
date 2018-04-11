@@ -18,7 +18,7 @@ The YANG Development Kit (YDK) is a Software Development Kit that provides API's
 
 Backward Compatibility
 ----------------------
-Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
+Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.  Note also that in 0.7.1, `#604 <https://github.com/CiscoDevNet/ydk-gen/issues/604>`_ and `#748 <https://github.com/CiscoDevNet/ydk-gen/issues/748>`_ introduced backward incompatibility for python. The bundles generated with 0.7.1 or newer ydk-gen will only work with ydk ``core`` version 0.7.1 or newer. Also error types for python were renamed from ``YPYError`` to ``YError``.
 
 Docker
 ------
