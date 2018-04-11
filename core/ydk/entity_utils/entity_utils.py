@@ -26,7 +26,7 @@ from ydk.ext.services import Datastore
 
 from ydk.types import Config, EncodingFormat
 
-from ydk.errors import YPYModelError, YPYServiceError
+from ydk.errors import YModelError, YServiceError
 
 _ENTITY_ERROR_MSG = "No YDK bundle installed for node path '{}'"
 
@@ -42,7 +42,7 @@ def _read_entities(provider, get_config=True, source=Datastore.running):
         elif source == Datastore.startup:
             source_str = "startup"
         elif source != Datastore.running:
-            raise YPYServiceError("Wrong datastore source value '{}'".format(source))
+            raise YServiceError("Wrong datastore source value '{}'".format(source))
         read_rpc.get_input_node().create_datanode("source/"+source_str);
     else:
         read_rpc = root_schema.create_rpc("ietf-netconf:get")
@@ -53,7 +53,7 @@ def _read_entities(provider, get_config=True, source=Datastore.running):
     for node in data_nodes.get_children():
         try:
             config.append(_datanode_to_entity(node))
-        except YPYModelError as err:
+        except YModelError as err:
             log = logging.getLogger('ydk')
             log.error(err.message)
     return config
@@ -74,7 +74,7 @@ def _datanode_to_entity(data_node):
                 get_entity_from_data_node(data_node, top_entity);
                 return top_entity
 
-    raise YPYModelError(_ENTITY_ERROR_MSG.format(node_path))
+    raise YModelError(_ENTITY_ERROR_MSG.format(node_path))
 
 
 def _payload_to_top_entity(payload, encoding):
@@ -96,11 +96,11 @@ def _payload_to_top_entity(payload, encoding):
         installed YDK model packages.
 
     Raises:
-        YPYServiceProviderError if search fails.
+        YServiceProviderError if search fails.
     """
     ns_ename = _get_ns_ename(payload, encoding)
     if None in ns_ename:
-        raise YPYModelError("Could not retrieve namespace and container name")
+        raise YModelError("Could not retrieve namespace and container name")
     ydk_models = importlib.import_module('ydk.models')
     for (_, name, ispkg) in pkgutil.iter_modules(ydk_models.__path__):
         if ispkg:
@@ -114,7 +114,7 @@ def _payload_to_top_entity(payload, encoding):
                 entity = getattr(mod, entity)()
                 return entity.clone_ptr()
 
-    raise YPYModelError(_ENTITY_ERROR_MSG.format(ns_ename[0]+':'+ns_ename[1]))
+    raise YModelError(_ENTITY_ERROR_MSG.format(ns_ename[0]+':'+ns_ename[1]))
 
 
 def _get_ns_ename(payload, encoding):

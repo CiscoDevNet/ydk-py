@@ -29,7 +29,7 @@ else:
 from ydk.types import Empty
 from ydk.services import CRUDService
 from ydk.providers import OpenDaylightServiceProvider
-from ydk.errors import YPYError
+from ydk.errors import YError
 from ydk.types import EncodingFormat
 from ydk.path import Repository
 from ydk.models.cisco_ios_xr import Cisco_IOS_XR_ipv4_bgp_cfg as xr_bgp

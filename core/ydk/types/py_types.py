@@ -34,8 +34,8 @@ from ydk.ext.types import YType
 from ydk.ext.types import Entity as _Entity
 from ydk.ext.types import LeafDataList
 from ydk.filters import YFilter as _YFilter
-from ydk.errors import YPYModelError as _YPYModelError
-from ydk.errors import YPYInvalidArgumentError
+from ydk.errors import YModelError as _YModelError
+from ydk.errors import YInvalidArgumentError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 class YList(list):
@@ -93,7 +93,7 @@ class YLeafList(_YLeafList):
 
     def set(self, other):
         if not isinstance(other, YLeafList):
-            raise _YPYModelError("Invalid value '{}' in '{}'"
+            raise _YModelError("Invalid value '{}' in '{}'"
                             .format(other, self.leaf_name))
         else:
             super(YLeafList, self).clear()
@@ -299,7 +299,7 @@ class Entity(_Entity):
             elif isinstance(value, list) and len(value) > 0:
                 l = _YLeafList(YType.str, leaf.name)
                 # l = self._leafs[name]
-                # Above results in YPYModelError:
+                # Above results in YModelError:
                 #     Duplicate leaf-list item detected:
                 #     /ydktest-sanity:runner/ytypes/built-in-t/enum-llist[.='local'] :
                 #     No resolvents found for leafref "../config/id"..
@@ -328,7 +328,7 @@ class Entity(_Entity):
     def _perform_setattr(self, clazz, leaf_names, name, value):
         with _handle_type_error():
             if name in self.__dict__ and isinstance(self.__dict__[name], YList):
-                raise _YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                raise _YModelError("Attempt to assign value of '{}' to YList ldata. "
                                     "Please use list append or extend method."
                                     .format(value))
             if isinstance(value, _Enum.YLeaf):
@@ -390,7 +390,7 @@ class EntityCollection():
           - list of Entity class instances
         """
         if entities is None:
-            self._log_error_and_raise_exception("Cannot add None object to the EntityCollection", YPYInvalidArgumentError)
+            self._log_error_and_raise_exception("Cannot add None object to the EntityCollection", YInvalidArgumentError)
         elif isinstance(entities, Entity):
             self._entity_map[entities.path()] = entities
         elif isinstance(entities, list):
@@ -399,10 +399,10 @@ class EntityCollection():
                     self._entity_map[entity.path()] = entity
                 else:
                     msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(entity)
-                    self._log_error_and_raise_exception(msg, YPYInvalidArgumentError)
+                    self._log_error_and_raise_exception(msg, YInvalidArgumentError)
         else:
             msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(entities)
-            self._log_error_and_raise_exception(msg, YPYInvalidArgumentError)
+            self._log_error_and_raise_exception(msg, YInvalidArgumentError)
 
     def _log_error_and_raise_exception(self, msg, exception_class):
         self.logger.error(msg)
@@ -454,7 +454,7 @@ class EntityCollection():
                 return None
         else:
             msg = "Argument %s is not supported by EntityCollection class; data ignored"%type(item)
-            self._log_error_and_raise_exception(msg, YPYInvalidArgumentError)
+            self._log_error_and_raise_exception(msg, YInvalidArgumentError)
             return None
 
     def clear(self):

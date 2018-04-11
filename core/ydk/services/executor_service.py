@@ -14,7 +14,7 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 from ydk.ext.services import ExecutorService as _ExecutorService
-from ydk.errors import YPYServiceError as _YPYServiceError
+from ydk.errors import YServiceError as _YServiceError
 from ydk.errors.error_handler import handle_runtime_error as _handle_error
 
 
@@ -26,7 +26,7 @@ class ExecutorService(_ExecutorService):
 
     def execute_rpc(self, provider, entity, top_entity=None):
         if None in (provider, entity):
-            raise _YPYServiceError("provider and entity cannot be None")
+            raise _YServiceError("provider and entity cannot be None")
 
         with _handle_error():
             return self._es.execute_rpc(provider, entity, top_entity)

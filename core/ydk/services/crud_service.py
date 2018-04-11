@@ -16,7 +16,7 @@
 from ydk.ext.services import CRUDService as _CrudService
 from ydk.errors.error_handler import handle_runtime_error as _handle_error
 from ydk.errors.error_handler import check_argument as _check_argument
-from ydk.errors import YPYServiceError
+from ydk.errors import YServiceError
 from ydk.types import EntityCollection, Config
 from ydk.entity_utils import _read_entities
 
@@ -36,7 +36,7 @@ class CRUDService(_CrudService):
         Other functions return boolean value: true - for success; false - failure.
 
     Raises:
-        Instance of YPYError in case of operation failure fails.
+        Instance of YError in case of operation failure fails.
     """
     def __init__(self):
         self._crud = _CrudService()
@@ -50,7 +50,7 @@ class CRUDService(_CrudService):
 
     def read(self, provider, read_filter=None):
         if provider is None:
-            raise YPYServiceError("provider cannot be None")
+            raise YServiceError("provider cannot be None")
 
         if read_filter is None:
             with _handle_error():
@@ -67,7 +67,7 @@ class CRUDService(_CrudService):
 
     def read_config(self, provider, read_filter=None):
         if provider is None:
-            raise YPYServiceError("provider cannot be None")
+            raise YServiceError("provider cannot be None")
 
         if read_filter is None:
             with _handle_error():
